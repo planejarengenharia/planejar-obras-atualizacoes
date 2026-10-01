@@ -2,8 +2,8 @@
  "programa": {
   "versao": "3.6.6",
   "url": "programa/Planejar Obras.html",
-  "sha256": "c2e386bf7508e58d98263e1b24a35af102006a50d3969c24759eaf94f7c50a83",
-  "notas": "Atualizações mais rápidas: com internet, o programa confere uma vez por dia se há versão nova, tabelas novas e a situação da sua conta. Trocou de computador ou de navegador? Em Conta e licença, o botão \"Pedir licença para este computador\" manda a sua conta e o código novo pelo WhatsApp. Inclui todas as correções da 3.6.4 e 3.6.5. Instale pelo instalador. Suas obras e licença continuam iguais.",
+  "sha256": "7f5c6da3f7ccd7c96f498c55532416c3ed2d1f829fdfe60f848f322bb0a73f76",
+  "notas": "Atualizações mais rápidas: com internet, o programa confere uma vez por dia se há versão nova, tabelas novas e a situação da sua conta. Trocou de computador ou de navegador? Em Conta e licença, o botão \"Pedir licença para este computador\" manda a sua conta e o código novo pelo WhatsApp. O aviso de \"acumulado passa da quantidade contratada\" não dispara mais por sobra de arredondamento da planilha. Inclui todas as correções da 3.6.4 e 3.6.5. Instale pelo instalador. Suas obras e licença continuam iguais.",
   "instalador": "programa/Instalar Planejar Obras.exe"
  },
  "tabelas": null,
