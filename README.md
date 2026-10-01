@@ -12,6 +12,11 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.7
+
+- **Memória de cálculo da medição:** o botão **Aplicar quantidade** não fica mais escondido em telas menores.
+- **Saldo por linha da memória do contrato:** ao abrir a memória de um serviço na medição, aparece cada local da memória do contrato com o total, o já medido, o que entra nesta medição e o saldo. O botão **Saldo** mede o que falta daquele local.
+
 ## Novidades da versão 3.6.6
 
 - **Atualizações mais rápidas:** com internet, o programa confere uma vez por dia se há versão nova, tabelas novas e a situação da conta. A licença continua com a validação mensal: sem internet, nada muda até completar 30 dias.

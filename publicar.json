@@ -1,9 +1,9 @@
 {
  "programa": {
-  "versao": "3.6.6",
+  "versao": "3.6.7",
   "url": "programa/Planejar Obras.html",
-  "sha256": "7f5c6da3f7ccd7c96f498c55532416c3ed2d1f829fdfe60f848f322bb0a73f76",
-  "notas": "Atualizações mais rápidas: com internet, o programa confere uma vez por dia se há versão nova, tabelas novas e a situação da sua conta. Trocou de computador ou de navegador? Em Conta e licença, o botão \"Pedir licença para este computador\" manda a sua conta e o código novo pelo WhatsApp. O aviso de \"acumulado passa da quantidade contratada\" não dispara mais por sobra de arredondamento da planilha. Inclui todas as correções da 3.6.4 e 3.6.5. Instale pelo instalador. Suas obras e licença continuam iguais.",
+  "sha256": "4d00b8d4c2a33f269d92d243adbdfdaac80cd0b891e769e73275107f25306947",
+  "notas": "Memória de cálculo da medição: o botão \"Aplicar quantidade\" não some mais em telas menores, e há o novo quadro \"Saldo por linha da memória do contrato\" (total, já medido, nesta medição e saldo de cada local, com o botão Saldo). Com internet, o programa confere uma vez por dia se há versão nova. Inclui todas as correções anteriores. Instale pelo instalador. Suas obras e licença continuam iguais.",
   "instalador": "programa/Instalar Planejar Obras.exe"
  },
  "tabelas": null,
