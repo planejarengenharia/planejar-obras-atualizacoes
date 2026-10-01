@@ -12,6 +12,15 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.4
+
+- **Contas mais exatas:** arredondamento de centavos exato e BDI com 2 casas, igual ao impresso. Obras feitas antes continuam com os mesmos valores até você clicar em **Atualizar o cálculo** no orçamento (o programa mostra a diferença antes).
+- **Quantidades com 3 ou mais casas** na medição e no orçamento (0,125 m³ não vira mais 0,13).
+- **Aviso antes de quebrar o selo:** se uma alteração mexer numa medição fechada, o programa pergunta e oferece desfazer.
+- **Aditivo novo vale a partir da próxima medição**, sem mexer nos boletins já fechados.
+- O quadro **Dados do orçamento** fica aberto enquanto você preenche; **1.500** é lido como mil e quinhentos.
+- Mais proteção ao importar arquivos de obra e de celular, e ao importar uma obra que já existe o programa pergunta se substitui ou cria uma cópia.
+
 ## Novidades da versão 3.6.3
 
 - **Backup automático sem pedir autorização:** instale pelo instalador acima e escolha a pasta do backup uma última vez. O atalho "Planejar Obras" passa a abrir o programa junto com um ajudante que grava o backup sozinho (só no seu computador).

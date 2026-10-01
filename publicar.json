@@ -1,9 +1,9 @@
 {
  "programa": {
-  "versao": "3.6.3",
+  "versao": "3.6.4",
   "url": "programa/Planejar Obras.html",
-  "sha256": "ac3051d81f8ca954d8ff91dc094d0833f60fdfa939352e4dc0a098a1444b9189",
-  "notas": "Backup automático sem pedir autorização: instale esta versão pelo instalador (botão Baixar o instalador) e escolha a pasta do backup uma última vez — depois ele grava sozinho toda vez. Também novo: PIN opcional para abrir o programa (Configurações e licença) e mais proteção da versão grátis. Continua tudo da 3.6: painel por finalidade, formação do preço, Gantt, selo na medição, relatórios com assinaturas e até 5 perfis. Suas obras e licença continuam iguais.",
+  "sha256": "b470c64e5a5a91d9a3f1ecba851eca09a75c65a265b6191e4b99cebd9ac4b5ca",
+  "notas": "Versão de correções, recomendada para todos: arredondamento exato de centavos e BDI com 2 casas (obras antigas continuam iguais até você clicar em \"Atualizar o cálculo\"), quantidades com 3 ou mais casas na medição, aviso antes de uma alteração quebrar o selo de medição fechada, aditivo novo valendo a partir da próxima medição, o quadro \"Dados do orçamento\" não fecha mais a cada campo, aceita 1.500 como mil e quinhentos, e mais proteção ao importar arquivos de obra. Instale pelo instalador para o backup continuar sem pedir autorização. Suas obras e licença continuam iguais.",
   "instalador": "programa/Instalar Planejar Obras.exe"
  },
  "tabelas": null,
