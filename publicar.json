@@ -1,10 +1,11 @@
 {
  "programa": {
-  "versao": "3.6.10",
+  "versao": "3.6.11",
   "url": "programa/Planejar Obras.html",
-  "sha256": "f454e2994a81ed5f9833a37a6549e3001df1cb97d18a5df7ad44aa30dae0bb70",
-  "notas": "Medição no padrão da pasta técnica: tabela da medição com cabeçalho fixo e as colunas do contrato, anterior, período, acumulado, saldo e situação do item; boletim com preços e totais sem e com BDI; resumo por etapa sem BDI, BDI e total com BDI; memória de cálculo mais curta: cada local da memória do contrato numa linha só, com o que foi medido agora (Nº, C, L, H e parcial), o medido antes, o acumulado, o saldo e a barra; novo cronograma físico-financeiro por medição; pasta técnica num PDF só e relatório final com a memória de cada medição. Orçamento completo em Excel (planilha orçamentária, custo direto, resumo, memória, composições, curva ABC, cronograma, BDI e encargos), também no backup. Instale pelo instalador. Suas obras e licença continuam iguais.",
-  "instalador": "programa/Instalar Planejar Obras.exe"
+  "sha256": "f476cc872f44b19782edcf50cf8165c2028b54743442284cf4e29be30959ed9a",
+  "notas": "Atualização com um clique: o botão Instalar baixa e troca o programa sozinho, sem pedir pasta. O programa confere se há versão nova toda vez que é aberto. Medição no padrão da pasta técnica: tabela da medição com cabeçalho fixo e as colunas do contrato, anterior, período, acumulado, saldo e situação do item; boletim com preços e totais sem e com BDI; resumo por etapa sem BDI, BDI e total com BDI; memória de cálculo mais curta: cada local da memória do contrato numa linha só, com o que foi medido agora (Nº, C, L, H e parcial), o medido antes, o acumulado, o saldo e a barra; novo cronograma físico-financeiro por medição; pasta técnica num PDF só e relatório final com a memória de cada medição. Orçamento completo em Excel (planilha orçamentária, custo direto, resumo, memória, composições, curva ABC, cronograma, BDI e encargos), também no backup. Instale pelo instalador. Suas obras e licença continuam iguais.",
+  "instalador": "programa/Instalar Planejar Obras.exe",
+  "instaladorSha256": "d2d0624998878a8f8b1fe28d05eb9d71c2278713166ad38f05c369e2a34f8691"
  },
  "tabelas": null,
  "catalogo": [
