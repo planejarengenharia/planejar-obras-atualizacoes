@@ -12,6 +12,12 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.15
+
+- **Atualizar a obra pela planilha:** em Relatórios → Processo completo em Excel, baixe a planilha, edite no Excel e clique em **Atualizar a obra pela planilha**. O programa mostra o que mudou (orçamento, cronograma, BDI, medições, aditivos, dados) e só grava quando você confirma. Fotos, diário, composições e memórias de cálculo continuam na obra. Dá para desfazer.
+- Medição fechada com selo não é alterada pela planilha; serviço que não está na planilha é mantido. Nos dois casos o programa avisa.
+- **Memória das medições** agora vai junto na planilha do processo e volta na importação.
+
 ## Novidades da versão 3.6.14
 
 - **Programa e planilha nos dois sentidos:** testamos exportar, alterar no Excel e importar de volta em todas as planilhas. Os valores que a planilha calcula agora batem com os do programa ao centavo, inclusive quando o BDI é aplicado sobre o total.
