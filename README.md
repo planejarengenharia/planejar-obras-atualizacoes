@@ -12,12 +12,16 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.9
+
+- **Memória de cálculo da medição** volta ao modelo de sempre (Nº, comprimento, largura, altura e parcial), agora com o acompanhamento de cada item: contrato, medido antes, nesta medição, acumulado, saldo e barra do acumulado (medido antes em azul, nesta medição em amarelo).
+- Embaixo de cada item sai o **saldo por linha da memória do contrato**: cada local com o total, o já medido, o desta medição, o acumulado e o saldo. O mesmo vale para a aba Memória do Excel da medição.
+
 ## Novidades da versão 3.6.8
 
 - **Tela da medição:** o cabeçalho da tabela fica fixo ao rolar e mostra contrato (quantidade, preço e total com BDI), acumulado anterior, este período, acumulado atual com %, saldo contratual e a situação do item. Saiu o "prev." embaixo da porcentagem.
 - **Boletim de medição completo:** preço unitário e total sem BDI e com BDI, quantidade realizada, movimento financeiro, saldo, realizado/contratado e situação do item, com as linhas Total sem BDI, B.D.I. e Total com BDI.
 - **Resumo por etapa sem BDI**, com o BDI e o total com BDI, % realizado × previsto, desvio e indicadores.
-- **Memória de cálculo da medição** com fórmula, P1 a P4, quantidade nesta medição e o acompanhamento de cada item (contrato, acumulado, saldo, % e situação).
 - **Novo: cronograma físico-financeiro por medição** (histórico de todas as medições por etapa, realizado × previsto).
 - **Pasta técnica num PDF só** (capa, resumo, boletim, memória, fotos e CFF) e **relatório final da obra** com o boletim e a memória de cálculo de cada medição.
 - **Excel da medição** com as abas Resumo, Boletim, Memória e CFF.
