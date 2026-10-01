@@ -12,6 +12,12 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.3
+
+- **Backup automático sem pedir autorização:** instale pelo instalador acima e escolha a pasta do backup uma última vez. O atalho "Planejar Obras" passa a abrir o programa junto com um ajudante que grava o backup sozinho (só no seu computador).
+- **PIN opcional** para abrir o programa (Configurações e licença → PIN).
+- Mais proteção da versão grátis.
+
 ## Novidades da versão 3.6.2
 
 - **Painel da obra que se adapta à finalidade:** obra em execução (avanço, medições por mês, pontos de atenção, curva S) ou orçamento para licitação (referência × proposta, limite de exequibilidade de 75%, documentos do edital).

@@ -1,9 +1,9 @@
 {
  "programa": {
-  "versao": "3.6.2",
+  "versao": "3.6.3",
   "url": "programa/Planejar Obras.html",
-  "sha256": "954cb228cbf3c0cf3d2b8c92406f94fc145762134019c1052bae9b020d71c807",
-  "notas": "Nova versão com cara nova e mais segurança: o painel da obra se adapta à finalidade (obra em execução ou licitação); orçamento com formação do preço (material, mão de obra e equipamento) e código de verificação nos PDFs; cronograma em Gantt; medição com etapas até o selo digital; central de Relatórios com assinaturas que levam logo, empresa e CNPJ; troca rápida de empresa; até 5 perfis de uso, cada um com as suas obras; e o backup automático agora religa sozinho ao abrir o programa. Suas obras e licença continuam iguais.",
+  "sha256": "ac3051d81f8ca954d8ff91dc094d0833f60fdfa939352e4dc0a098a1444b9189",
+  "notas": "Backup automático sem pedir autorização: instale esta versão pelo instalador (botão Baixar o instalador) e escolha a pasta do backup uma última vez — depois ele grava sozinho toda vez. Também novo: PIN opcional para abrir o programa (Configurações e licença) e mais proteção da versão grátis. Continua tudo da 3.6: painel por finalidade, formação do preço, Gantt, selo na medição, relatórios com assinaturas e até 5 perfis. Suas obras e licença continuam iguais.",
   "instalador": "programa/Instalar Planejar Obras.exe"
  },
  "tabelas": null,
