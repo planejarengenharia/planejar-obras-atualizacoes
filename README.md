@@ -12,6 +12,11 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.5
+
+- **Troca de computador sem complicação:** se a licença foi ativada em outro computador ou navegador, a tela Conta e licença mostra o botão **Pedir licença para este computador**. Ele manda pelo WhatsApp a sua conta e o código novo. A licença nova vem com o mesmo plano e a mesma validade.
+- Inclui todas as correções da 3.6.4.
+
 ## Novidades da versão 3.6.4
 
 - **Contas mais exatas:** arredondamento de centavos exato e BDI com 2 casas, igual ao impresso. Obras feitas antes continuam com os mesmos valores até você clicar em **Atualizar o cálculo** no orçamento (o programa mostra a diferença antes).
