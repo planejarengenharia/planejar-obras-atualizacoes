@@ -1,9 +1,9 @@
 {
  "programa": {
-  "versao": "3.6.9",
+  "versao": "3.6.10",
   "url": "programa/Planejar Obras.html",
-  "sha256": "f6c100c9e1fcca11be5d191236611fbb5a8bf4c8cf2d25d52d16aaca96aa3798",
-  "notas": "Medição no padrão da pasta técnica: tabela da medição com cabeçalho fixo e as colunas do contrato, anterior, período, acumulado, saldo e situação do item; boletim com preços e totais sem e com BDI; resumo por etapa sem BDI, BDI e total com BDI; memória de cálculo no modelo de sempre, com o acumulado de cada item em barra e o saldo por linha da memória do contrato; novo cronograma físico-financeiro por medição; pasta técnica num PDF só e relatório final com a memória de cada medição. Orçamento completo em Excel (planilha orçamentária, custo direto, resumo, memória, composições, curva ABC, cronograma, BDI e encargos), também no backup. Instale pelo instalador. Suas obras e licença continuam iguais.",
+  "sha256": "f454e2994a81ed5f9833a37a6549e3001df1cb97d18a5df7ad44aa30dae0bb70",
+  "notas": "Medição no padrão da pasta técnica: tabela da medição com cabeçalho fixo e as colunas do contrato, anterior, período, acumulado, saldo e situação do item; boletim com preços e totais sem e com BDI; resumo por etapa sem BDI, BDI e total com BDI; memória de cálculo mais curta: cada local da memória do contrato numa linha só, com o que foi medido agora (Nº, C, L, H e parcial), o medido antes, o acumulado, o saldo e a barra; novo cronograma físico-financeiro por medição; pasta técnica num PDF só e relatório final com a memória de cada medição. Orçamento completo em Excel (planilha orçamentária, custo direto, resumo, memória, composições, curva ABC, cronograma, BDI e encargos), também no backup. Instale pelo instalador. Suas obras e licença continuam iguais.",
   "instalador": "programa/Instalar Planejar Obras.exe"
  },
  "tabelas": null,

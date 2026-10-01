@@ -12,6 +12,10 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.10
+
+- **Memória de cálculo da medição mais curta:** cada local da memória do contrato ocupa uma linha só, com o que foi medido nele agora (Nº, comprimento, largura, altura e parcial) ao lado do contrato, medido antes, acumulado, saldo e barra de avanço. Os locais medidos agora ficam em amarelo. Na obra de teste, a memória caiu de 17 para 7 páginas.
+
 ## Novidades da versão 3.6.9
 
 - **Memória de cálculo da medição** volta ao modelo de sempre (Nº, comprimento, largura, altura e parcial), agora com o acompanhamento de cada item: contrato, medido antes, nesta medição, acumulado, saldo e barra do acumulado (medido antes em azul, nesta medição em amarelo).
