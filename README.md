@@ -12,6 +12,14 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.14
+
+- **Programa e planilha nos dois sentidos:** testamos exportar, alterar no Excel e importar de volta em todas as planilhas. Os valores que a planilha calcula agora batem com os do programa ao centavo, inclusive quando o BDI é aplicado sobre o total.
+- **Planilha do processo:** medições e aditivos calculam pelo mesmo critério do programa; o aditivo leva junto a partir de qual boletim passa a valer.
+- **Planilha da medição:** o valor do período acompanha a quantidade digitada; ao relançar o boletim na obra, a memória de cálculo dos serviços que não mudaram é mantida.
+- **Orçamento em Excel:** o BDI da planilha vem da aba BDI e o cronograma recalcula pelos percentuais; a importação reconhece o total e o BDI sobre o total.
+- **Modelo de aditivo:** serviço novo entra na etapa indicada na planilha.
+
 ## Novidades da versão 3.6.13
 
 - **Página inicial nova:** números em cartões, execução por obra, gráfico de medições por mês menor e cartões das obras com situação e barra de avanço.
