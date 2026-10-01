@@ -1,11 +1,11 @@
 {
  "programa": {
-  "versao": "3.6.12",
+  "versao": "3.6.13",
   "url": "programa/Planejar Obras.html",
-  "sha256": "6c04fe14cdd87621ebb51131de4ae4ea263a386d877258844a73dca86012c2ed",
-  "notas": "Planilhas Excel abrem sem o aviso de reparo (corrigida a fórmula do BDI). Resumo da medição cabe na folha. Atualização com um clique: o botão Instalar baixa e troca o programa sozinho, sem pedir pasta. O programa confere se há versão nova toda vez que é aberto. Medição no padrão da pasta técnica: tabela da medição com cabeçalho fixo e as colunas do contrato, anterior, período, acumulado, saldo e situação do item; boletim com preços e totais sem e com BDI; resumo por etapa sem BDI, BDI e total com BDI; memória de cálculo mais curta: cada local da memória do contrato numa linha só, com o que foi medido agora (Nº, C, L, H e parcial), o medido antes, o acumulado, o saldo e a barra; novo cronograma físico-financeiro por medição; pasta técnica num PDF só e relatório final com a memória de cada medição. Orçamento completo em Excel (planilha orçamentária, custo direto, resumo, memória, composições, curva ABC, cronograma, BDI e encargos), também no backup. Instale pelo instalador. Suas obras e licença continuam iguais.",
+  "sha256": "747d974ac8c145e90d278e073b3aa27ea96c414f06652b61c5b76948a90f6472",
+  "notas": "Página inicial nova: números em cartões, execução por obra, gráfico de medições menor e cartões das obras com situação e avanço. Medição com a mesma estrutura do orçamento (árvore de etapas, recolher e expandir, visual confortável ou compacto) e barra de botões fixa ao rolar. Aditivos: marca em cada serviço aditivado, memória de cálculo do aditivo, cronograma reprogramado e relatório completo. Relatórios: Ver/PDF em cada documento e um botão Excel e PDF que abre a janela para escolher o que imprimir. Planilhas Excel no padrão dos relatórios e ligadas por fórmulas (boletim, resumo, memória, cronograma e orçamento); abrem sem o aviso de reparo. Atualização com um clique. Suas obras e licença continuam iguais.",
   "instalador": "programa/Instalar Planejar Obras.exe",
-  "instaladorSha256": "6e63e4daacae5dddb8a66616ab699ce0932f25808ff28c84b5c5ecb74a24cdf5"
+  "instaladorSha256": "875a5056f5fc9f29cdd25ddce1a74ee4894596f58dd4d61eec444c86a5699803"
  },
  "tabelas": null,
  "catalogo": [

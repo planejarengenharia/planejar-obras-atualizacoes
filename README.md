@@ -12,6 +12,14 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.13
+
+- **Página inicial nova:** números em cartões, execução por obra, gráfico de medições por mês menor e cartões das obras com situação e barra de avanço.
+- **Medições com a cara do orçamento:** árvore de etapas ao lado, recolher e expandir, visual **Confortável** ou **Compacto**, e a barra de botões fica fixa ao rolar a página (no orçamento também).
+- **Aditivos reprogramados:** cada serviço aditivado aparece marcado (ex.: "TA1 +30,34") no orçamento, na medição e nos relatórios; memória de cálculo por alteração; cronograma reprogramado a partir do mês do aditivo (os meses já passados ficam como estavam) e relatório completo do aditivo com memorial e cronograma.
+- **Relatórios mais simples:** cada documento tem **Ver / PDF**; um botão **Excel e PDF** abre a janela para escolher o que imprimir, com duas saídas: Excel com fórmulas e Pré-visualizar/PDF.
+- **Planilhas Excel no padrão dos relatórios e ligadas por fórmulas:** no boletim, total = quantidade × preço, acumulado, saldo e % calculados; etapas e totais somam os itens; o resumo puxa os valores do boletim; a memória e o cronograma também somam sozinhos. O orçamento completo ganhou as mesmas ligações.
+
 ## Novidades da versão 3.6.12
 
 - **Excel sem o aviso "Encontramos um problema":** a fórmula do BDI tinha um parêntese a menos e o Excel reparava o arquivo. Corrigido, e o programa agora confere todas as fórmulas antes de gravar a planilha.
