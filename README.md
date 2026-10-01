@@ -12,6 +12,11 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
 
+## Novidades da versão 3.6.12
+
+- **Excel sem o aviso "Encontramos um problema":** a fórmula do BDI tinha um parêntese a menos e o Excel reparava o arquivo. Corrigido, e o programa agora confere todas as fórmulas antes de gravar a planilha.
+- **Resumo da medição** cabe na largura da folha.
+
 ## Novidades da versão 3.6.11
 
 - **Atualização com um clique:** no aviso de versão nova, o botão **Instalar** baixa, confere e troca o programa sozinho, sem pedir para escolher pasta. A versão anterior fica guardada em "versoes anteriores", na pasta do programa. Vale para quem abre o programa pelo atalho da Área de Trabalho, depois de instalar esta versão pelo instalador.
