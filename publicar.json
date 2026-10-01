@@ -1,9 +1,9 @@
 {
  "programa": {
-  "versao": "3.6.5",
+  "versao": "3.6.6",
   "url": "programa/Planejar Obras.html",
-  "sha256": "ac53bfad5631db979ab56d4fe70aad1924d6b73f01b275b04fb493f25dcda3a0",
-  "notas": "Trocou de computador, formatou ou passou a abrir o programa em outro navegador? Em Conta e licença aparece o botão \"Pedir licença para este computador\", que manda pelo WhatsApp a sua conta e o código novo; a licença nova vem com o mesmo plano e a mesma validade. Inclui todas as correções da 3.6.4 (arredondamento de centavos, BDI com 2 casas, quantidades com 3 casas, aviso antes de quebrar o selo e importação mais segura). Instale pelo instalador. Suas obras e licença continuam iguais.",
+  "sha256": "c2e386bf7508e58d98263e1b24a35af102006a50d3969c24759eaf94f7c50a83",
+  "notas": "Atualizações mais rápidas: com internet, o programa confere uma vez por dia se há versão nova, tabelas novas e a situação da sua conta. Trocou de computador ou de navegador? Em Conta e licença, o botão \"Pedir licença para este computador\" manda a sua conta e o código novo pelo WhatsApp. Inclui todas as correções da 3.6.4 e 3.6.5. Instale pelo instalador. Suas obras e licença continuam iguais.",
   "instalador": "programa/Instalar Planejar Obras.exe"
  },
  "tabelas": null,
