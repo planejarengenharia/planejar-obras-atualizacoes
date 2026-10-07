@@ -1,12 +1,12 @@
 {
  "programa": {
-  "versao": "3.6.16",
-  "url": "programa/Planejar Obras.html",
-  "sha256": "190f04bd3194581cbe837fd40dbfb9dcac1dc7a178aca05455136490563d7c09",
-  "notas": "Revisão geral de segurança e de cálculo. Novo: Atualizar a obra pela planilha — edite o Processo completo no Excel e traga as alterações de volta para a mesma obra, conferindo antes o que mudou; fotos, diário, composições e memórias são mantidos. Programa e planilha conversando nos dois sentidos: o que você altera no Excel (orçamento, memória, cronograma, BDI, medições e aditivos) volta para o programa com os mesmos valores, ao centavo. Página inicial nova: números em cartões, execução por obra, gráfico de medições menor e cartões das obras com situação e avanço. Medição com a mesma estrutura do orçamento (árvore de etapas, recolher e expandir, visual confortável ou compacto) e barra de botões fixa ao rolar. Aditivos: marca em cada serviço aditivado, memória de cálculo do aditivo, cronograma reprogramado e relatório completo. Relatórios: Ver/PDF em cada documento e um botão Excel e PDF que abre a janela para escolher o que imprimir. Planilhas Excel no padrão dos relatórios e ligadas por fórmulas (boletim, resumo, memória, cronograma e orçamento); abrem sem o aviso de reparo. Atualização com um clique. Suas obras e licença continuam iguais.",
-  "instalador": "programa/Instalar Planejar Obras.exe",
-  "instaladorSha256": "04257a26f9f85970b3290a3fe64ee31da089e4ec7a3a44b05219eb2841843454"
- },
+  "versao": "3.7.0",
+  "url": "programa/3.7.0/Planejar Obras.html",
+  "sha256": "b79eab7217a713875d331d6b359e71414a589e1d8a0913691b1e5058a42f871a",
+  "notas": "Licitação: desconto pelo valor do lance (fecha ao centavo), desconto por item com trava no preço de referência, readequação ao lance vencedor com botão de voltar atrás e, novo, desconto por grupo de custo (mão de obra, material, equipamentos e terceiros) com o limite do edital que você informar. Aditivos avisam quando não mantêm o desconto da licitação. Tela de abertura rápida. Trocar de computador: o backup guarda um banco de dados único e há o botão Trazer meu banco de dados de outro computador. Instalador com janela própria. Suas obras e licença continuam iguais.",
+  "instalador": "programa/3.7.0/Instalar Planejar Obras 3.7.0.exe",
+  "instaladorSha256": "a513609c7c151e9dc7d021b903a4bfe105efd0aa1ec4b96031e26d1aef405442"
+  ,
  "tabelas": null,
  "catalogo": [
   {
