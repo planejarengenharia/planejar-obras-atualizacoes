@@ -6,7 +6,7 @@
   "notas": "Licitação: desconto pelo valor do lance (fecha ao centavo), desconto por item com trava no preço de referência, readequação ao lance vencedor com botão de voltar atrás e, novo, desconto por grupo de custo (mão de obra, material, equipamentos e terceiros) com o limite do edital que você informar. Aditivos avisam quando não mantêm o desconto da licitação. Tela de abertura rápida. Trocar de computador: o backup guarda um banco de dados único e há o botão Trazer meu banco de dados de outro computador. Instalador com janela própria. Suas obras e licença continuam iguais.",
   "instalador": "programa/3.7.0/Instalar Planejar Obras 3.7.0.exe",
   "instaladorSha256": "a513609c7c151e9dc7d021b903a4bfe105efd0aa1ec4b96031e26d1aef405442"
-  ,
+  },
  "tabelas": null,
  "catalogo": [
   {
