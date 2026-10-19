@@ -1,0 +1,2 @@
+# o git nunca mexe nos bytes (sem conversão CRLF): o SHA-256 do registro assinado tem de bater com o arquivo publicado
+* -text
