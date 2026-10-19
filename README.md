@@ -10,7 +10,25 @@ Para usar o programa é preciso uma conta ou licença emitida pela Planejar Enge
 
 ## Instalar
 
-Baixe **[Instalar Planejar Obras.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/Instalar%20Planejar%20Obras.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
+Baixe **[Instalar Planejar Obras 5.0.exe](https://github.com/planejarengenharia/planejar-obras-atualizacoes/raw/main/programa/5.0/Instalar%20Planejar%20Obras%205.0.exe)** e dê dois cliques. Não precisa de administrador: o programa vai para a sua pasta de usuário e ganha atalhos na Área de Trabalho e no Menu Iniciar. Se o Windows mostrar "O Windows protegeu o computador", clique em **Mais informações → Executar assim mesmo**.
+
+## Novidades da versão 5.0
+
+1. PLANEJAR PROJETOS (novo): no topo, ao lado da logo, escolha "Obras" ou "Projetos".
+   - Projete em 5 etapas: Programa, Planta, Complementares, Pranchas e Orçamento.
+   - Comece por um modelo pronto (casas, popular Caixa, geminada, kitnet, comércio, UBS, creche/sala de aula), escrevendo "como é a casa" ou em branco.
+   - Planta por cômodos: arraste, estique ou digite as medidas; as paredes, portas e janelas aparecem sozinhas.
+   - "Calcular tudo": estrutura (pré-dimensionamento), água fria, esgoto, fossa e sumidouro, águas pluviais e elétrico, pelas normas. Parâmetros editáveis no Modo avançado.
+   - Pranchas A2 (planta, cortes e fachadas, cobertura, humanizada, estrutural, detalhamento, hidráulica, esgoto, elétrica) com carimbo da sua empresa ou da Prefeitura. Imprimir/PDF, DXF (AutoCAD) e IFC.
+   - Gerar orçamento: vira uma obra no Planejar Obras com as tabelas SINAPI ou SEINFRA. Se a planta mudar, "Atualizar orçamento" mostra o antes e depois.
+   - Criar projetos não gasta os usos grátis; só gerar o orçamento conta 1.
+2. Som suave nos cliques e reação dos botões. Botão discreto ao lado de Salvar para silenciar.
+3. Entrada mais rápida.
+4. Painel da obra: o cartão com os dados da obra ocupa a largura toda, como no Orçamento.
+5. Celular: modo campo, botões maiores, som e salvar visíveis, pranchas com zoom.
+6. **Atualização com um clique mais completa:** além do programa, troca também as tabelas (pasta dados) e a versão do celular. Abra sempre pelo atalho **Planejar Obras**.
+
+Todo cálculo do Projetos é pré-dimensionamento: o responsável técnico confere e assina.
 
 ## Novidades da versão 3.6.16
 

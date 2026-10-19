@@ -1,0 +1,52 @@
+{
+  "programa": {
+    "versao": "5.0",
+    "url": "programa/5.0/Planejar Obras.html",
+    "sha256": "c89301ad8a5f1b089d09893f5d6a31a3446c0d7fc3dadf529735345433053cf6",
+    "notas": "Novo Planejar Projetos: projete em 5 etapas (programa, planta, complementares, pranchas A2 e orçamento), comece por um modelo pronto e gere o orçamento SINAPI/SEINFRA com um clique. Celular com modo campo. Entrada mais rápida. A atualização agora também troca as tabelas (pasta dados) e a versão do celular. Suas obras e licença continuam iguais.",
+    "instalador": "programa/5.0/Instalar Planejar Obras 5.0.exe",
+    "instaladorSha256": "46ffb6a8dd32e17fd4fe38e73d8f820539078c8cc6ea409c29e4b9818693e93b",
+    "arquivos": [
+      {
+        "nome": "Planejar Obras - CELULAR.html",
+        "url": "programa/5.0/Planejar Obras - CELULAR.html",
+        "sha256": "7881efea2a9f4314b36465222480bcecdd5d1f5532659f8d4da3cd42065cb11f"
+      },
+      {
+        "nome": "dados/memorial_base_2026_10.js",
+        "url": "programa/5.0/dados/memorial_base_2026_10.js",
+        "sha256": "978f5a0900c2d1bf797a7aa38ea19f43924fd0bd94ea92502467c3d54a9249ce"
+      },
+      {
+        "nome": "dados/pdfjs.js",
+        "url": "programa/5.0/dados/pdfjs.js",
+        "sha256": "f30e04b896e53cad211f638ba0de9178191fb60fe91b526bcd9258df148db0a8"
+      },
+      {
+        "nome": "dados/seinfra_028_1_d.js",
+        "url": "programa/5.0/dados/seinfra_028_1_d.js",
+        "sha256": "694176518c2ec5edaf6524f9dd673f295009f1de8269ff769ea39039a14197a2"
+      },
+      {
+        "nome": "dados/seinfra_028_nd.js",
+        "url": "programa/5.0/dados/seinfra_028_nd.js",
+        "sha256": "69471b5f4a44c4601359aeac5cc858e3e4008eb8e5debf5f8621e9a5d104aaa1"
+      },
+      {
+        "nome": "dados/sinapi_2026_08_analitico.js",
+        "url": "programa/5.0/dados/sinapi_2026_08_analitico.js",
+        "sha256": "0f27e021a3ad7248ccf48bf75e98eb032951d04af1f7ff47bcc474297680703e"
+      },
+      {
+        "nome": "dados/sinapi_ce_2026_08_d.js",
+        "url": "programa/5.0/dados/sinapi_ce_2026_08_d.js",
+        "sha256": "baf00c7cd2514cf5722a44784a45c77c8e9daaa7f4d8293a7b1aa2f4f37db734"
+      },
+      {
+        "nome": "dados/sinapi_ce_2026_08_nd.js",
+        "url": "programa/5.0/dados/sinapi_ce_2026_08_nd.js",
+        "sha256": "7a448bb362664182ab2e9b0370e8b28d97772bc146b91bd02758b7dd63e3b6b3"
+      }
+    ]
+  }
+}
