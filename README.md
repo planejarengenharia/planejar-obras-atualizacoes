@@ -21,12 +21,13 @@ Baixe **[Instalar Planejar Obras 5.0.exe](https://github.com/planejarengenharia/
    - "Calcular tudo": estrutura (pré-dimensionamento), água fria, esgoto, fossa e sumidouro, águas pluviais e elétrico, pelas normas. Parâmetros editáveis no Modo avançado.
    - Pranchas A2 (planta, cortes e fachadas, cobertura, humanizada, estrutural, detalhamento, hidráulica, esgoto, elétrica) com carimbo da sua empresa ou da Prefeitura. Imprimir/PDF, DXF (AutoCAD) e IFC.
    - Gerar orçamento: vira uma obra no Planejar Obras com as tabelas SINAPI ou SEINFRA. Se a planta mudar, "Atualizar orçamento" mostra o antes e depois.
-   - Criar projetos não gasta os usos grátis; só gerar o orçamento conta 1.
+   - Projetos faz parte do plano pago. No plano grátis ele aparece como uma prévia bloqueada ("Disponível no plano pago"), sem abrir o editor.
 2. Som suave nos cliques e reação dos botões. Botão discreto ao lado de Salvar para silenciar.
 3. Entrada mais rápida.
 4. Painel da obra: o cartão com os dados da obra ocupa a largura toda, como no Orçamento.
 5. Celular: modo campo, botões maiores, som e salvar visíveis, pranchas com zoom.
-6. **Atualização com um clique mais completa:** além do programa, troca também as tabelas (pasta dados) e a versão do celular. Abra sempre pelo atalho **Planejar Obras**.
+6. **Plano grátis: 5 orçamentos em 6 meses** (o que vier primeiro; os 6 meses contam do primeiro uso no computador). Com os 5 usados, dá para editar os que já tem até acabar o prazo; depois dos 6 meses o programa fica só para leitura: suas obras continuam abrindo, imprimindo, exportando e com backup. PDFs e planilhas do plano grátis levam o rodapé "Feito com Planejar Obras · plano grátis". Licença paga ou cortesia: sem limite de prazo, sem rodapé e com Projetos.
+7. **Atualização com um clique mais completa:** além do programa, troca também as tabelas (pasta dados) e a versão do celular. Abra sempre pelo atalho **Planejar Obras**.
 
 Todo cálculo do Projetos é pré-dimensionamento: o responsável técnico confere e assina.
 
