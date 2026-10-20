@@ -2,15 +2,15 @@
   "programa": {
     "versao": "5.0",
     "url": "programa/5.0/Planejar Obras.html",
-    "sha256": "d159d16b5eebe30771db7216ce82e254ba572c13f2d02c2c21c1455fc7aebf76",
-    "notas": "Novo Planejar Projetos: projete em 5 etapas (programa, planta, complementares, pranchas A2 e orçamento), comece por um modelo pronto e gere o orçamento SINAPI/SEINFRA com um clique. Celular com modo campo. Entrada mais rápida. Plano grátis: 5 orçamentos em 6 meses (Projetos é do plano pago). A atualização agora também troca as tabelas (pasta dados) e a versão do celular. Suas obras e licença continuam iguais.",
+    "sha256": "df3090eae7b66a337dd4d37b17548fb4d4d1c75ef6c31ab9a846822e39617d37",
+    "notas": "Novo Planejar Projetos: projete em 5 etapas (programa, planta, complementares, pranchas A2 e orçamento), comece por um modelo pronto e gere o orçamento SINAPI/SEINFRA com um clique. Celular com modo campo. Entrada mais rápida. Cortesia de 3 meses para todos: tudo liberado, inclusive Projetos, com até 5 orçamentos (depois, só leitura, com backup). A atualização agora também troca as tabelas (pasta dados) e a versão do celular. Suas obras e licença continuam iguais.",
     "instalador": "programa/5.0/Instalar Planejar Obras 5.0.exe",
-    "instaladorSha256": "671ed3181cb7426773f2a731238de901b958701ead6ee114d145504abff11700",
+    "instaladorSha256": "de37381d6989fcce849bc2c29d6296256140169f5685cde3744c587f63c8b2d6",
     "arquivos": [
       {
         "nome": "Planejar Obras - CELULAR.html",
         "url": "programa/5.0/Planejar Obras - CELULAR.html",
-        "sha256": "427bc40397a1f922ce65e66a462e0733ad6836043b4ca3fb1fed2313c6a4f3c9"
+        "sha256": "00c1b8b7b6329948da38473b804292bc491fb4267455aba1d9c44a32b034d5d5"
       },
       {
         "nome": "dados/memorial_base_2026_10.js",
