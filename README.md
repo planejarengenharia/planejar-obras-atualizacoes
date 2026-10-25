@@ -5,6 +5,7 @@ Arquivos de atualização do **Planejar Obras 5.0** (Planejar Engenharia), o pro
 - `registro.json` — registro mensal assinado digitalmente (versão do programa, catálogo de tabelas de preço, normas e licenças antigas canceladas). O programa confere a assinatura antes de usar qualquer informação.
 - `programa/` — versão atual do programa (`programa/5.0/`) e as anteriores, para histórico.
 - `tabelas/` — tabelas de preço publicadas: SINAPI 09/2026 dos 27 estados (desonerado e não desonerado), SICRO, ORSE, SEINFRA e tabelas estaduais. Os arquivos do mês anterior ficam guardados, porque obras antigas podem usá-los.
+- `docs/` — site de divulgação do Planejar Obras (GitHub Pages: Settings → Pages → `main` / `docs`).
 - `publicar.json` — o que está preparado para o próximo registro (programa, catálogo de tabelas e acórdãos).
 
 Para usar o programa é preciso uma **conta Planejar** (e-mail e senha), que o próprio programa cria na primeira abertura. A conta guarda só o seu cadastro, o seu plano e o contador de orçamentos: **as suas obras ficam somente no seu computador**. A **Cortesia de 3 meses** (até 5 orçamentos, com tudo liberado) não pede cartão.
