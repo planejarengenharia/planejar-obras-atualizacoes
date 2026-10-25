@@ -1,12 +1,15 @@
 # Planejar Obras — atualizações
 
-Arquivos de atualização do **Planejar Obras** (Planejar Engenharia).
+Arquivos de atualização do **Planejar Obras 5.0** (Planejar Engenharia), o programa de orçamento, medição e projeto de obras para Windows 10 e 11.
 
-- `registro.json` — registro mensal assinado digitalmente (situação das licenças, tabelas de preço e versão do programa). O programa confere a assinatura antes de usar qualquer informação.
-- `programa/` — versão atual do programa.
-- `tabelas/` — tabelas de preço publicadas.
+- `registro.json` — registro mensal assinado digitalmente (versão do programa, catálogo de tabelas de preço, normas e licenças antigas canceladas). O programa confere a assinatura antes de usar qualquer informação.
+- `programa/` — versão atual do programa (`programa/5.0/`) e as anteriores, para histórico.
+- `tabelas/` — tabelas de preço publicadas: SINAPI 09/2026 dos 27 estados (desonerado e não desonerado), SICRO, ORSE, SEINFRA e tabelas estaduais. Os arquivos do mês anterior ficam guardados, porque obras antigas podem usá-los.
+- `publicar.json` — o que está preparado para o próximo registro (programa, catálogo de tabelas e acórdãos).
 
-Para usar o programa é preciso uma conta ou licença emitida pela Planejar Engenharia.
+Para usar o programa é preciso uma **conta Planejar** (e-mail e senha), que o próprio programa cria na primeira abertura. A conta guarda só o seu cadastro, o seu plano e o contador de orçamentos: **as suas obras ficam somente no seu computador**. A **Cortesia de 3 meses** (até 5 orçamentos, com tudo liberado) não pede cartão.
+
+Suporte: planejarobrascentral@gmail.com · WhatsApp (88) 99708-4754.
 
 ## Instalar
 
@@ -15,19 +18,18 @@ Baixe **[Instalar Planejar Obras 5.0.exe](https://github.com/planejarengenharia/
 ## Novidades da versão 5.0
 
 1. PLANEJAR PROJETOS (novo): no topo, ao lado da logo, escolha "Obras" ou "Projetos".
-   - Projete em 5 etapas: Programa, Planta, Complementares, Pranchas e Orçamento.
-   - Comece por um modelo pronto (casas, popular Caixa, geminada, kitnet, comércio, UBS, creche/sala de aula), escrevendo "como é a casa" ou em branco.
-   - Planta por cômodos: arraste, estique ou digite as medidas; as paredes, portas e janelas aparecem sozinhas.
-   - "Calcular tudo": estrutura (pré-dimensionamento), água fria, esgoto, fossa e sumidouro, águas pluviais e elétrico, pelas normas. Parâmetros editáveis no Modo avançado.
-   - Pranchas A2 (planta, cortes e fachadas, cobertura, humanizada, estrutural, detalhamento, hidráulica, esgoto, elétrica) com carimbo da sua empresa ou da Prefeitura. Imprimir/PDF, DXF (AutoCAD) e IFC.
-   - Gerar orçamento: vira uma obra no Planejar Obras com as tabelas SINAPI ou SEINFRA. Se a planta mudar, "Atualizar orçamento" mostra o antes e depois.
-   - Projetos fica liberado durante a cortesia de 3 meses. Depois dela, seus projetos ficam guardados e voltam a abrir ao ativar um plano; o backup continua seu.
-2. Som suave nos cliques e reação dos botões. Botão discreto ao lado de Salvar para silenciar.
-3. Entrada mais rápida.
-4. Painel da obra: o cartão com os dados da obra ocupa a largura toda, como no Orçamento.
-5. Celular: modo campo, botões maiores, som e salvar visíveis, pranchas com zoom.
-6. **Cortesia de 3 meses: tudo liberado, inclusive Projetos, com até 5 orçamentos** (o que vier primeiro; os 3 meses contam do primeiro uso no computador). Com os 5 usados, dá para editar os que já tem até acabar o prazo; depois dos 3 meses o programa fica só para leitura: suas obras continuam abrindo, imprimindo, exportando e com backup, e seus projetos ficam guardados. PDFs e planilhas da cortesia levam o rodapé "Feito com Planejar Obras · cortesia". Licença paga ou licença de cortesia: sem limite de prazo, sem rodapé e com Projetos.
-7. **Atualização com um clique mais completa:** além do programa, troca também as tabelas (pasta dados) e a versão do celular. Abra sempre pelo atalho **Planejar Obras**.
+   - Cinco etapas, sempre com "Voltar" e "Próximo" na tela: Terreno e casa, Planta, Complementares, Pranchas e Orçamento.
+   - Comece por um modelo pronto (casas térreas e sobrados de até 2 pavimentos, popular Caixa, geminada, kitnet, comércio, UBS, creche), por "Descreva a casa" (3 plantas diferentes, com botão Espelhar) ou em branco.
+   - Planta com medida exata: a face da parede fica no recuo, a distância às divisas aparece na tela, há "Mover a casa toda" e sugestões em sombra que você aceita com um clique. Quem não é projetista usa o modo simples.
+   - "Calcular tudo": estrutura, água fria, esgoto, fossa e sumidouro, águas pluviais e elétrico, em pré-dimensionamento.
+   - Pranchas A2 (9 na casa térrea, 14 no sobrado) com legenda de materiais, quadro de esquadrias e "Baixar PDF" direto. Exporta para AutoCAD (.dxf), Revit (.ifc) e SketchUp (.dae).
+   - Orçamento da casa com faixa de custo e custo por grupo; "Gerar orçamento" vira uma obra com as tabelas SINAPI ou SEINFRA.
+2. ORÇAMENTOS mais exatos: edital com truncamento, desconto e lance que fecham ao centavo, Excel com fórmulas que recalcula igual ao programa, troca de desonerado para não desonerado com os encargos e a tabela certos, medição "sem BDI" que fecha e textos legais separados para obra pública e obra privada.
+3. TABELAS DE PREÇO DO PAÍS: o catálogo (Tabelas de preço) traz a SINAPI 09/2026 dos 27 estados, SICRO, ORSE, SEINFRA e tabelas estaduais, avisa "mês novo" e atualiza com um botão. O programa já vem com SINAPI-CE e SEINFRA-CE e importa a planilha oficial de qualquer tabela.
+4. CELULAR DO MESTRE: recebe a obra do engenheiro, lança avanço, diário e fotos e devolve; as fotos voltam para a obra. No celular também dá para criar um projeto e ver a planta com zoom e as pranchas.
+5. CONTA PLANEJAR E CORTESIA DE 3 MESES: todos usam uma conta (e-mail e senha), criada em 1 minuto, sem cartão. A cortesia libera tudo, inclusive Projetos, com até 5 orçamentos em 3 meses (o que vier primeiro; os 3 meses contam do primeiro uso no computador). Depois disso o programa fica só para leitura: suas obras continuam abrindo, imprimindo, exportando e com backup, e seus projetos ficam guardados. PDFs e planilhas da cortesia levam o rodapé "Feito com Planejar Obras · cortesia"; com plano pago não há rodapé nem limite de orçamentos. Suas obras ficam somente no seu computador.
+6. ATUALIZAÇÃO COM UM CLIQUE: troca o programa, a versão do celular e as tabelas da pasta dados. Abra sempre pelo atalho Planejar Obras.
+7. Som suave nos cliques (botão ao lado de Salvar para silenciar) e entrada mais rápida.
 
 Todo cálculo do Projetos é pré-dimensionamento: o responsável técnico confere e assina.
 
@@ -128,4 +130,4 @@ Todo cálculo do Projetos é pré-dimensionamento: o responsável técnico confe
 - **Até 5 perfis de uso**, cada um com as suas obras, e troca rápida da empresa que sai nos documentos.
 - **Backup automático** que religa sozinho ao abrir o programa.
 
-Para atualizar: abra o programa com internet e clique em **Atualizar** no aviso de versão nova, ou baixe o instalador acima. Suas obras e a sua licença continuam iguais.
+Para atualizar: abra o programa com internet e clique em **Atualizar** no aviso de versão nova, ou baixe o instalador acima. Suas obras e a sua conta continuam iguais.
