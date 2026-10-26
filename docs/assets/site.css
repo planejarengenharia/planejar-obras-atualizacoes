@@ -521,3 +521,17 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
   .entra{animation:none}
 }
 @media print{.topo,.barra-fixa,.aviso-baixando,.menu-bt{display:none}.escura,.hero{background:#fff;color:#000}}
+
+/* 26/10/2026: Planejar Empresas */
+.empresas{position:relative;margin-top:18px;display:grid;gap:1.2rem;align-items:center;padding:1.8rem 1.5rem 1.5rem;border-radius:16px;background:var(--cartao);border:2px solid var(--azul)}
+@media (min-width:860px){.empresas{grid-template-columns:1fr minmax(240px,320px);gap:2rem}}
+.empresas h3{font-size:1.4rem}
+.empresas>div>p{color:var(--tinta-2)}
+.empresas ul{list-style:none;margin:.8rem 0 0;display:grid;gap:.5rem;font-size:.97rem}
+.empresas li{position:relative;padding-left:1.6rem}
+.empresas li::before{content:"";position:absolute;left:.1rem;top:.42em;width:.8rem;height:.45rem;border-left:3px solid var(--ok);border-bottom:3px solid var(--ok);transform:rotate(-45deg)}
+.empresas .plano-selo{top:-14px}
+.empresas-preco{display:grid;gap:.6rem}
+.empresas-preco .preco{margin:0}
+.empresas-preco .preco-sub{font-size:.9rem}
+.empresas.realce{box-shadow:0 0 0 2px var(--azul),var(--sombra)}

@@ -2,7 +2,7 @@
    Tudo aqui é melhoria: sem JavaScript, a página continua legível, os links de baixar e de WhatsApp funcionam. */
 document.documentElement.setAttribute("data-js-ok", "");
 
-const PRECOS = { essencial: { m: 49, a: 490 }, profissional: { m: 89, a: 890 }, fundador: { a: 690 } };
+const PRECOS = { essencial: { m: 49, a: 490 }, profissional: { m: 89, a: 890 }, fundador: { a: 690 }, empresas: { m: 249, a: 2490, lanc: 1990 } };
 const reduz = window.matchMedia("(prefers-reduced-motion: reduce)");
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -238,7 +238,8 @@ function abas(lista, aoMudar) {
     $$("[data-plano]").forEach(p => p.classList.remove("realce"));
     $$("tr[data-r]").forEach(tr => tr.classList.toggle("dest-linha", !!n[tr.dataset.r]));
     let k, t, s;
-    if (n.ano && !pro) { k = "essencial"; t = "Essencial, no pagamento anual."; s = "Anual: " + brl(PRECOS.essencial.a) + " por ano. O Fundador (" + brl(PRECOS.fundador.a) + " por ano, 100 vagas) inclui licitação e projetos."; }
+    if (n.emp) { k = "empresas"; t = "Planejar Empresas."; s = "Tudo liberado em 5 computadores com uma conta só, suporte prioritário e treinamento. Lançamento: " + brl(PRECOS.empresas.lanc) + " por ano para as 20 primeiras empresas (depois " + brl(PRECOS.empresas.m) + " por mês ou " + brl(PRECOS.empresas.a) + " por ano)."; }
+    else if (n.ano && !pro) { k = "essencial"; t = "Essencial, no pagamento anual."; s = "Anual: " + brl(PRECOS.essencial.a) + " por ano. O Fundador (" + brl(PRECOS.fundador.a) + " por ano, até 31/03/2027 ou 100 vagas) inclui licitação e projetos."; }
     else if (pro && n.ano) { k = "profissional"; t = "Profissional anual, ou o Fundador."; s = brl(PRECOS.profissional.a) + " por ano no Profissional. O Fundador custa " + brl(PRECOS.fundador.a) + " por ano, com o preço travado, enquanto houver vagas."; }
     else if (pro) { k = "profissional"; t = "Profissional."; s = "Inclui licitação, Planejar Projetos e 2 computadores. " + brl(PRECOS.profissional.m) + " por mês."; }
     else if (cks.some(c => c.checked)) { k = "essencial"; t = "Essencial."; s = "Orçamento e medição sem limite, com celular e diário. " + brl(PRECOS.essencial.m) + " por mês."; }
