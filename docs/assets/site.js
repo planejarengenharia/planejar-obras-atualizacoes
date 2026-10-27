@@ -219,14 +219,18 @@ function abas(lista, aoMudar) {
   els.forEach(el => io.observe(el));
 })();
 
-/* ---------- cortesia: medidor de orçamentos ---------- */
+/* ---------- cortesia: medidor de orçamentos e de projetos (5 orçamentos e 3 projetos) ---------- */
 (function () {
-  const r = $("#m-orc"); if (!r) return;
-  const t = n => n === 0 ? "Você ainda tem os 5 orçamentos e os 3 meses inteiros, com tudo liberado." :
-    n < 5 ? "Faltam " + (5 - n) + (5 - n === 1 ? " orçamento" : " orçamentos") + " dentro dos 3 meses. Tudo continua liberado." :
-    "Os 5 orçamentos foram usados. O programa deixa de criar orçamentos novos até você contratar um plano, e suas obras continuam abertas para leitura, impressão, exportação e backup.";
-  const f = () => { const n = +r.value; $("#m-o").textContent = n + " de 5"; $("#m-txt").textContent = t(n); };
-  r.addEventListener("input", f); f();
+  const r = $("#m-orc"), q = $("#m-prj"); if (!r) return;
+  const pl = (n, um, mais) => n + " " + (n === 1 ? um : mais);
+  const t = (n, p) => {
+    const o = n === 0 ? "Você ainda tem os 5 orçamentos" : n < 5 ? "Faltam " + pl(5 - n, "orçamento", "orçamentos") : "Os 5 orçamentos foram usados";
+    const j = !q ? "" : p === 0 ? " e os 3 projetos" : p < 3 ? " e faltam " + pl(3 - p, "projeto", "projetos") : " e os 3 projetos foram usados";
+    const fim = n >= 5 || (q && p >= 3) ? ". O programa deixa de criar " + (n >= 5 && q && p >= 3 ? "orçamentos e projetos novos" : n >= 5 ? "orçamentos novos" : "projetos novos") + " até você contratar um plano; as obras continuam abertas para leitura, impressão, exportação e backup (os projetos ficam guardados, com o preço da casa à vista)." : ", dentro dos 3 meses. Tudo continua liberado.";
+    return o + j + fim;
+  };
+  const f = () => { const n = +r.value, p = q ? +q.value : 0; $("#m-o").textContent = n + " de 5"; if (q) $("#m-p").textContent = p + " de 3"; $("#m-txt").textContent = t(n, p); };
+  r.addEventListener("input", f); if (q) q.addEventListener("input", f); f();
 })();
 
 /* ---------- escolha do plano ---------- */
@@ -238,8 +242,9 @@ function abas(lista, aoMudar) {
     $$("[data-plano]").forEach(p => p.classList.remove("realce"));
     $$("tr[data-r]").forEach(tr => tr.classList.toggle("dest-linha", !!n[tr.dataset.r]));
     let k, t, s;
-    if (n.emp) { k = "empresas"; t = "Planejar Empresas."; s = "Tudo liberado em 5 computadores com uma conta só, suporte prioritário e treinamento. Lançamento: " + brl(PRECOS.empresas.lanc) + " por ano para as 20 primeiras empresas (depois " + brl(PRECOS.empresas.m) + " por mês ou " + brl(PRECOS.empresas.a) + " por ano)."; }
-    else if (n.ano && !pro) { k = "essencial"; t = "Essencial, no pagamento anual."; s = "Anual: " + brl(PRECOS.essencial.a) + " por ano. O Fundador (" + brl(PRECOS.fundador.a) + " por ano, até 31/03/2027 ou 100 vagas) inclui licitação e projetos."; }
+    if (n.emp) { k = "empresas"; t = "Planejar Empresas."; s = "Tudo liberado em 5 computadores com uma conta só (cada computador guarda as suas obras), suporte prioritário pelo WhatsApp e orientação de início. Lançamento: " + brl(PRECOS.empresas.lanc) + " por ano para as 20 primeiras empresas (depois " + brl(PRECOS.empresas.m) + " por mês ou " + brl(PRECOS.empresas.a) + " por ano)."; }
+    else if (n.casa && !n.lic) { k = "profissional"; t = "Cortesia agora; Profissional por 1 mês depois."; s = "A cortesia deixa criar até 3 projetos e ver o preço da casa. Para fechar o projeto, o mês avulso do Profissional custa " + brl(PRECOS.profissional.m) + " e cancela quando você quiser."; }
+    else if (n.ano && !pro) { k = "essencial"; t = "Essencial, no pagamento anual."; s = "Anual: " + brl(PRECOS.essencial.a) + " por ano. O Fundador (" + brl(PRECOS.fundador.a) + " por ano, até 31/03/2027 ou 100 vagas, individual) inclui licitação e projetos."; }
     else if (pro && n.ano) { k = "profissional"; t = "Profissional anual, ou o Fundador."; s = brl(PRECOS.profissional.a) + " por ano no Profissional. O Fundador custa " + brl(PRECOS.fundador.a) + " por ano, com o preço travado, enquanto houver vagas."; }
     else if (pro) { k = "profissional"; t = "Profissional."; s = "Inclui licitação, Planejar Projetos e 2 computadores. " + brl(PRECOS.profissional.m) + " por mês."; }
     else if (cks.some(c => c.checked)) { k = "essencial"; t = "Essencial."; s = "Orçamento e medição sem limite, com celular e diário. " + brl(PRECOS.essencial.m) + " por mês."; }
@@ -278,6 +283,7 @@ function abas(lista, aoMudar) {
 /* ---------- planos: mensal / anual ---------- */
 (function () {
   const bts = $$("[data-ciclo]"); if (!bts.length) return;
+  const EMP_SUB = ($('[data-sub="empresas"]') || {}).textContent;
   function aplica(ciclo) {
     bts.forEach(b => { const s = b.dataset.ciclo === ciclo; b.setAttribute("aria-checked", s ? "true" : "false"); b.tabIndex = s ? 0 : -1; });
     ["essencial", "profissional"].forEach(k => {
@@ -288,6 +294,14 @@ function abas(lista, aoMudar) {
       el.append(un);
     });
     const av = $("[data-fundador-aviso]"); if (av) av.textContent = ciclo === "m" ? "O Fundador é cobrado só por ano." : "";
+    // Empresas: igual ao programa. Anual = R$ 2.490 riscado e R$ 1.990 (lançamento); mensal = R$ 249 por mês
+    const ee = $('[data-preco="empresas"]'), es = $('[data-sub="empresas"]');
+    if (ee && es) {
+      const e = PRECOS.empresas, un = document.createElement("small"); ee.textContent = "";
+      if (ciclo === "m") { ee.append(brl(e.m)); un.textContent = "por mês"; es.textContent = "No anual de lançamento: " + brl(e.lanc) + " por ano (de " + brl(e.a) + "), para as 20 primeiras empresas ou até 31/03/2027, travado enquanto renovar."; }
+      else { const c = document.createElement("s"); c.className = "de"; c.textContent = brl(e.a); ee.append(c, " " + brl(e.lanc)); un.textContent = "por ano"; es.textContent = EMP_SUB; }
+      ee.append(un);
+    }
   }
   bts.forEach(b => b.addEventListener("click", () => aplica(b.dataset.ciclo)));
   $(".alterna").addEventListener("keydown", e => {
@@ -295,7 +309,14 @@ function abas(lista, aoMudar) {
     e.preventDefault(); const k = bts.findIndex(b => b.getAttribute("aria-checked") === "true"), n = bts[(k + 1) % bts.length];
     aplica(n.dataset.ciclo); n.focus();
   });
-  aplica("m");
+  aplica("a");
+})();
+
+/* ---------- tabela dos planos no celular: seta e sombra na borda enquanto houver mais colunas para a direita ---------- */
+(function () {
+  const rol = $(".tabela-rolar"), cx = rol && rol.parentElement; if (!rol || !cx || !cx.classList.contains("tabela-caixa")) return;
+  const f = () => { const fim = rol.scrollLeft + rol.clientWidth >= rol.scrollWidth - 4; cx.toggleAttribute("data-fim", fim); };
+  rol.addEventListener("scroll", f, { passive: true }); window.addEventListener("resize", f); f();
 })();
 
 /* ---------- ampliar a tela: janela com a imagem grande (no celular, dá para arrastar para os lados) ---------- */

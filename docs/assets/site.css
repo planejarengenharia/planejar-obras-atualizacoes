@@ -161,9 +161,9 @@ button{font:inherit;color:inherit}
 .eusou-nota{font-size:.92rem;color:#D0DDEF;margin-top:.7rem;min-height:1.5em}
 .eusou-nota a{color:var(--amarelo)}
 @media (max-width:640px){
-  .eusou{flex-wrap:nowrap;overflow-x:auto;margin-inline:calc(-1 * var(--gut));padding:4px var(--gut) 8px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 var(--gut),#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 var(--gut),#000 calc(100% - 28px),transparent)}
-  .eusou::-webkit-scrollbar{display:none}
-  .eusou-rot{flex:none}
+  /* r10 (r9_dono_mestre G): no celular a fila "Eu sou" quebra em linhas (antes rolava de lado e "Dono de obra" ficava cortado no canto direito) */
+  .eusou{flex-wrap:wrap;overflow:visible;margin-inline:0;padding:4px 0 8px;gap:8px}
+  .eusou-rot{flex:0 0 100%}
 }
 
 /* entrada do hero: o único movimento sem ação da pessoa */
@@ -394,7 +394,12 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .plano .botao{margin-top:auto}
 .plano-selo{position:absolute;top:-14px;left:1.4rem;background:var(--amarelo);color:var(--amarelo-tinta);font:700 .85rem var(--display);padding:.35em .9em;border-radius:999px}
 .fundador{margin-top:18px;display:grid;gap:1rem;align-items:center;padding:1.5rem;border-radius:16px;background:var(--escuro);color:var(--claro);border:1px solid var(--escuro-linha);--tinta:var(--claro);--tinta-2:var(--claro-2);--foco:var(--amarelo)}
-@media (min-width:860px){.fundador{grid-template-columns:1fr auto auto;gap:2rem}}
+@media (min-width:860px){.fundador{grid-template-columns:1fr minmax(240px,320px);gap:2rem}}
+.fundador{position:relative;padding-top:1.9rem}.fundador .plano-selo{top:-14px}
+.fundador ul{list-style:none;margin:.6rem 0 0;display:grid;gap:.35rem;font-size:.95rem;color:var(--claro-2)}.fundador li{position:relative;padding-left:1.5rem}
+.fundador li::before{content:"";position:absolute;left:.1rem;top:.42em;width:.8rem;height:.45rem;border-left:3px solid var(--amarelo);border-bottom:3px solid var(--amarelo);transform:rotate(-45deg)}
+.fundador-preco{display:grid;gap:.6rem}.fundador-preco .preco-sub{font-size:.9rem;color:var(--claro-2)}
+.como-assinar{margin-top:.2rem;color:var(--tinta-2)}
 .fundador h3{color:#fff;font-size:1.4rem}
 .fundador p{color:var(--claro-2)}
 .fundador .preco{color:var(--amarelo);margin:0}.fundador .preco small{color:var(--claro-2)}
@@ -412,9 +417,9 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .comparar{margin-top:2.6rem}
 .comparar h3{font-size:1.25rem;margin-bottom:1rem}
 .tabela{width:100%;table-layout:fixed;border-collapse:collapse;background:var(--cartao);border:1px solid var(--linha);font-size:.97rem}
-.tabela th,.tabela td{padding:.75rem .9rem;border-bottom:1px solid var(--linha);text-align:center;overflow-wrap:anywhere}
+.tabela th,.tabela td{padding:.75rem .9rem;border-bottom:1px solid var(--linha);text-align:center;overflow-wrap:normal;word-break:normal;hyphens:none}
 .tabela thead th{background:var(--tinta);color:var(--cartao-inv,#fff);font:700 .95rem var(--display)}
-.tabela thead th:first-child{width:36%}
+.tabela thead th:first-child{width:25%}
 @media (prefers-color-scheme:dark){.tabela thead th{background:#17335C;color:#fff}}
 .tabela tbody th{text-align:left;font-weight:500}
 .tabela .destaque{background:color-mix(in srgb,var(--amarelo) 16%,transparent)}
@@ -422,7 +427,14 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .tabela tr.dest-linha th,.tabela tr.dest-linha td{box-shadow:inset 0 0 0 99px color-mix(in srgb,var(--azul) 9%,transparent)}
 .sim::before{content:"";display:inline-block;width:.75rem;height:.42rem;border-left:3px solid var(--ok);border-bottom:3px solid var(--ok);transform:translateY(-3px) rotate(-45deg)}
 .nao{color:var(--tinta-2)}
-@media (max-width:640px){.tabela{font-size:.82rem}.tabela th,.tabela td{padding:.55rem .4rem}.tabela thead th{font-size:.78rem}.tabela thead th:first-child{width:34%}}
+/* tabela dos planos: no celular rola para o lado (1ª coluna fixa), sem quebrar palavra no meio */
+.tabela-rolar{position:relative;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px}
+.tabela-rolar:focus-visible{outline:3px solid var(--foco,#1b5fa8);outline-offset:2px}
+.nota-tab{margin-top:.7rem}
+.dica-rolar{display:none;margin:0 0 .5rem}
+@media (max-width:860px){.dica-rolar{display:block}}
+@media (max-width:860px){.tabela{table-layout:auto;min-width:760px;font-size:.84rem}.tabela th,.tabela td{padding:.6rem .55rem;min-width:6.4rem}.tabela thead th{font-size:.8rem;white-space:nowrap}.tabela thead th:first-child{width:auto}
+  .tabela tbody th{position:sticky;left:0;z-index:1;min-width:9.2rem;background:var(--cartao);box-shadow:1px 0 0 var(--linha)}.tabela thead th:first-child{position:sticky;left:0;z-index:2;min-width:9.2rem}}
 .aviso-rt{margin-top:1.6rem;padding:.9rem 1.1rem;background:var(--aviso);color:var(--aviso-tinta);border-radius:10px;font-size:.96rem}
 
 /* ---------- FAQ ---------- */
@@ -535,3 +547,23 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .empresas-preco .preco{margin:0}
 .empresas-preco .preco-sub{font-size:.9rem}
 .empresas.realce{box-shadow:0 0 0 2px var(--azul),var(--sombra)}
+/* r6: alvos de toque de pelo menos 32 px nos links do rodapé e nas caixas de escolha do plano */
+.rodape a{display:inline-block;padding:.4rem 0;min-height:32px;box-sizing:border-box}
+.escolha label{display:flex;align-items:center;gap:.5rem;min-height:36px}
+
+/* 26/10/2026 (r8): tabela dos planos no celular com seta e sombra na borda direita; alvos de toque >= 32 px; Empresas com preço cheio riscado; pagamento e simulador */
+.tabela-caixa{position:relative}
+.seta-rolar{display:none}
+@media (max-width:860px){
+  .tabela-caixa::after{content:"";position:absolute;top:0;right:0;bottom:0;width:34px;border-radius:0 10px 10px 0;background:linear-gradient(to left,rgba(14,47,86,.28),rgba(14,47,86,0));pointer-events:none;transition:opacity .2s}
+  .seta-rolar{display:flex;position:absolute;right:4px;top:50%;transform:translateY(-50%);width:28px;height:28px;align-items:center;justify-content:center;border-radius:50%;background:var(--azul);color:#fff;font:700 1.3rem/1 var(--display);pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.35);transition:opacity .2s}
+  .tabela-caixa[data-fim]::after,.tabela-caixa[data-fim] .seta-rolar{opacity:0}
+}
+p a,li a:not(.botao),.nota a,.resp a{padding:7px 2px;margin:-7px -2px}
+.preco .de,.preco-sub .de{font:500 1.05rem var(--display);color:var(--tinta-2);margin-right:.2em}
+.empresas .preco .de{display:block;font-size:1.1rem}
+.pagamento{margin-top:1.4rem;font-size:1rem;max-width:62rem}
+.medidor label+input{margin-bottom:.4rem}
+.medidor label:nth-of-type(2){margin-top:.9rem}
+.escolha input{width:32px;height:32px}
+.medidor label,.calc .campo label{min-height:32px}
