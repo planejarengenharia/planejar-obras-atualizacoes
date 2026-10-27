@@ -2,15 +2,15 @@
   "programa": {
     "versao": "5.0",
     "url": "programa/5.0/Planejar Obras.html",
-    "sha256": "10b4f9fe75c053fc3b57bf903ad5141904eabee1f804a413b3d627633c8f4771",
+    "sha256": "38ee9a425ec85fd7a0e537b6a8709434508d1a373a5d54e7e44e0106348de035",
     "notas": "Novo Planejar Projetos: da ideia às pranchas A2 em 5 etapas, com orçamento da casa e exportação para AutoCAD, Revit e SketchUp. Orçamentos mais exatos, catálogo com a SINAPI 09/2026 dos 27 estados e celular do mestre mais completo. Agora todos usam uma conta Planejar (e-mail e senha), com cortesia de 3 meses; se você já era cliente, fale com a Planejar para ligar o seu plano à conta. Suas obras continuam somente no seu computador.",
     "instalador": "programa/5.0/Instalar Planejar Obras 5.0.exe",
-    "instaladorSha256": "87ab70f9d4512607aa1a2d96c95a97c279b496704a6d5a7677ae10d0f6e96e4c",
+    "instaladorSha256": "4a7e83b3098a00b95ec6d5c7297b1c6370c149139ea117b993034f6d2a0b5e03",
     "arquivos": [
       {
         "nome": "Planejar Obras - CELULAR.html",
         "url": "programa/5.0/Planejar Obras - CELULAR.html",
-        "sha256": "952f99dfac9eaaa4560f78ca07f9dbaa9be1430c0c18757aebc92559286388e9"
+        "sha256": "f91dd6124395cda38a1bc9534257861d9154fa578851b4fcb623d55c11dd9d21"
       },
       {
         "nome": "dados/memorial_base_2026_10.js",
