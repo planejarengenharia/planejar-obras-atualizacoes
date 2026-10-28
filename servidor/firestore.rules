@@ -1,0 +1,200 @@
+rules_version = '2';
+
+// Planejar Obras 5.1 - regras do Firestore (projeto planejar-obras, banco (default), southamerica-east1).
+// Sem Cloud Functions: tudo o que o cliente pode ou não pode fazer está AQUI. Só a conta (nunca obra, orçamento, preço ou projeto).
+//   contas/{uid}      dados da conta. O cliente cria (cortesia padrão) e só sobe o contador / acrescenta o computador / dá NOME a cada computador (maqNomes) /
+//                     "libera" um computador da própria lista (no máx. 1 a cada 30 dias, registrado em libN/libUlt/libCod). Plano, limite,
+//                     validade (f), módulos (mod), situação (s), início (ini) e criadoEm SÓ o dono altera, pelo console do Firebase.
+//   maquinas/{codigo} registro do computador (1º dono, início, contador). Fica mesmo depois de excluir a conta (a cortesia não reabre).
+//                     Leitura (get) liberada a qualquer usuário logado: o conteúdo é só {uid opaco, ini, criadoEm, criados}; não há list.
+//   admins/{uid}      QUEM é dono/administrador. O documento só é criado pelo CONSOLE do Firebase (Firestore -> Dados), com o UID do dono como ID.
+//                     Nenhum cliente consegue escrever aqui (nem o próprio dono pelo programa). Nenhum e-mail do dono está nas regras nem no código.
+//                     Administrador (admin()) lê, lista e altera TODAS as contas (painel_dono.html) e lê os computadores (maquinas).
+//   (r9, 27/10/2026) Pagamento e assistência - escritos SÓ pelas Cloud Functions (Admin SDK ignora as regras) ou pelo dono:
+//   contas/{uid}      o cliente continua SEM poder mexer em plano, f, mod, maq, lim, s, ini, assin, asaasCliente, whatsN (nenhum está na lista do update).
+//                     Novo: o cliente muda 'whats' e 'whatsOk' (consentimento do WhatsApp, LGPD) na própria conta. 'whatsN' (número normalizado) é gravado pelo servidor.
+//   pagamentos/{id}   cliente lê (get/list) só os dele (uid == auth.uid). Ninguém do cliente escreve.
+//   chamados/{id}     cliente cria o seu, lê os seus e acrescenta UMA mensagem por vez, só como "cliente". O dono (admin) lê e responde todos.
+//   avisos/{uid}/itens/{id}  cliente lê os seus e só marca "lido". O servidor cria.
+//   vagas/{nome}      leitura (get) para qualquer logado. eventos, fundadores, wa_conversas: ninguém do cliente (admin só lê eventos).
+// Tudo que não está escrito aqui é NEGADO.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function logado() { return request.auth != null; }
+    function verificado() { return logado() && request.auth.token.email_verified == true; }
+    function dono(uid) { return logado() && request.auth.uid == uid; }
+    // 26/10/2026 (r6): quantos computadores a conta pode ter. O campo 'maq' (inteiro 1..10) SÓ o administrador grava (Central v5 / painel / console);
+    // sem 'maq' vale o padrão de antes: cortesia de 3 meses = 1, planos pagos = 2 (contas existentes não mudam). Acima de 10 vale 10.
+    function maqBruto(d) { return d.get('maq', d.get('plano', 'cortesia3m') == 'cortesia3m' ? 1 : 2); }
+    function maxMaq(d) { return maqBruto(d) > 10 ? 10 : (maqBruto(d) < 1 ? 1 : maqBruto(d)); }
+    function textoOk(v, max) { return v is string && v.size() <= max; }
+    function codOk(c) { return c is string && c.matches('^[A-Z2-9]{4}-[A-Z2-9]{4}$'); }
+    // 26/10/2026 (r8): NOME de cada computador da conta (maqNomes = {codigo: nome}). O dono da conta grava só para códigos que estão na PRÓPRIA lista
+    // 'maquinas', no máximo 1 nome novo/alterado/removido por gravação, nome de 1 a 40 letras. Só confere quando o mapa mudou (mexer na lista pelo console não trava a conta).
+    function nomesOk(novo, velho, lista) {
+      return novo is map && novo.size() <= 10
+        && novo.keys().hasOnly(lista)
+        && novo.diff(velho).affectedKeys().size() <= 1;
+      // 27/10 (CEO): sem conferir o tamanho de cada nome aqui (Set não tem acesso por índice nas regras; um erro de avaliação travaria a gravação).
+      // O programa já corta o nome em 40 letras e a Central mostra escapado; o nome só afeta a própria conta.
+    }
+    // 26/10/2026 (r8): campos que o cliente pode mexer SEM liberar computador (o registro das liberações libN/libUlt/libCod fica de fora)
+    function semLib() { return request.resource.data.diff(resource.data).affectedKeys().hasOnly(['criados', 'maquinas', 'nome', 'whats', 'whatsOk', 'maqNomes']); }
+    // 26/10/2026 (r8): "liberar este computador" feito pelo cliente = tirar da PRÓPRIA lista exatamente UM código (o que ele informa em libCod), no máximo 1 vez
+    // a cada 30 dias, e fica registrado na conta: libN (quantas vezes, sobe de 1 em 1), libUlt (hora do servidor) e libCod (o código liberado).
+    // Não dá para liberar mais de um de uma vez, nem repetir antes de 30 dias, nem apagar ou baixar o registro. Quem repõe o computador depois é a regra de "cresce".
+    function liberaUm(novo, velho, d, antigo) {
+      return novo.toSet().size() == novo.size()
+        && velho.hasAll(novo)
+        && novo.size() == velho.size() - 1
+        && codOk(d.get('libCod', null))
+        && velho.hasAny([d.libCod]) && !novo.hasAny([d.libCod])
+        && d.get('libN', null) is int && d.libN == antigo.get('libN', 0) + 1
+        && d.get('libUlt', null) == request.time
+        && (antigo.get('libUlt', null) == null || request.time > antigo.libUlt + duration.value(30, 'd'));
+    }
+    // administrador = existe o documento admins/{uid} (criado só pelo console). O UID vem da autenticação, não de um campo que o cliente escreva.
+    function admin() { return logado() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
+
+    // ---------------------------------------------------------------- contas/{uid}
+    match /contas/{uid} {
+      allow get: if dono(uid);
+      // dono do sistema (admins/{uid}): lê, lista e altera TODAS as contas, todos os campos (plano, f, lim, mod, s, ini, criados...). Não cria nem exclui.
+      allow get, list, update: if admin();
+
+      // criar a própria conta: cortesia padrão, início = hora do servidor, contador zerado, sem plano/limite/validade/módulos
+      allow create: if dono(uid)
+        && request.resource.data.keys().hasOnly(['email', 'nome', 'whats', 'whatsOk', 'criadoEm', 'ini', 'criados', 'maquinas', 'plano', 'aceitouTermos'])
+        && request.resource.data.keys().hasAll(['email', 'nome', 'criadoEm', 'ini', 'criados', 'maquinas', 'plano', 'aceitouTermos'])
+        && request.resource.data.email is string
+        && request.resource.data.email.lower() == request.auth.token.email.lower()
+        && textoOk(request.resource.data.nome, 120) && request.resource.data.nome.size() >= 1
+        && (!('whats' in request.resource.data) || textoOk(request.resource.data.whats, 30))
+        && (!('whatsOk' in request.resource.data) || request.resource.data.whatsOk is bool)
+        && request.resource.data.criadoEm == request.time
+        && request.resource.data.ini == request.time
+        && request.resource.data.criados == 0
+        && request.resource.data.plano == 'cortesia3m'
+        && request.resource.data.aceitouTermos == true
+        && request.resource.data.maquinas is list && request.resource.data.maquinas.size() <= 1;
+
+      // atualizar: só com e-mail verificado; só nome, whats, criados (nunca desce, no máximo +50 por gravação), maquinas (cresce até maxMaq = campo 'maq' do dono;
+      // ou perde UM código por "liberar este computador", ver liberaUm), maqNomes (nome de cada computador) e o registro das liberações (libN, libUlt, libCod, só junto com a liberação).
+      // 'maq' NÃO está na lista de campos permitidos: o cliente nunca consegue criar nem alterar 'maq' (nem plano, f, lim, mod, s, ini).
+      allow update: if dono(uid) && verificado()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['criados', 'maquinas', 'nome', 'whats', 'whatsOk', 'maqNomes', 'libN', 'libUlt', 'libCod'])
+        && request.resource.data.criados is int
+        && request.resource.data.criados >= resource.data.criados
+        && request.resource.data.criados <= resource.data.criados + 50
+        && request.resource.data.maquinas is list
+        && ((request.resource.data.maquinas == resource.data.maquinas && semLib())
+            || (request.resource.data.maquinas.hasAll(resource.data.maquinas)
+                && request.resource.data.maquinas.size() > resource.data.maquinas.size()
+                && request.resource.data.maquinas.size() <= maxMaq(resource.data)
+                && semLib())
+            || liberaUm(request.resource.data.maquinas, resource.data.maquinas, request.resource.data, resource.data))
+        && (request.resource.data.get('maqNomes', {}) == resource.data.get('maqNomes', {})
+            || nomesOk(request.resource.data.maqNomes, resource.data.get('maqNomes', {}), request.resource.data.maquinas))
+        && textoOk(request.resource.data.nome, 120) && request.resource.data.nome.size() >= 1
+        && (!('whats' in request.resource.data) || textoOk(request.resource.data.whats, 30))
+        && (!('whatsOk' in request.resource.data) || request.resource.data.whatsOk is bool);
+
+      // excluir a própria conta (LGPD). As maquinas/{codigo} ficam, de propósito.
+      // 22/10/2026: conta SUSPENSA ou CANCELADA pelo dono não se auto-exclui (senão o cliente apagaria a conta e criaria outra "limpa" com o mesmo login);
+      // nesse caso a exclusão (LGPD) é feita pelo dono, no console.
+      allow delete: if dono(uid) && !(resource.data.get('s', '') in ['suspenso', 'cancelado']);
+    }
+
+    // ---------------------------------------------------------------- maquinas/{codigo}
+    match /maquinas/{codigo} {
+      allow get: if logado();
+      allow get, list: if admin();   // o painel do dono vê todos os computadores
+
+      // 1º registro do computador: quem chega primeiro é o dono; início = hora do servidor; nunca cria de novo (se existir, é update)
+      allow create: if verificado()
+        && codigo.matches('^[A-Z2-9]{4}-[A-Z2-9]{4}$')
+        && request.resource.data.keys().hasOnly(['uid', 'ini', 'criadoEm', 'criados'])
+        && request.resource.data.keys().hasAll(['uid', 'ini', 'criadoEm', 'criados'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.ini == request.time
+        && request.resource.data.criadoEm == request.time
+        && request.resource.data.criados is int
+        && request.resource.data.criados >= 0 && request.resource.data.criados <= 50;
+
+      // único update permitido: o contador do computador SOBE (o computador lembra os orçamentos mesmo com conta nova); uid/ini/criadoEm imutáveis
+      allow update: if verificado()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['criados'])
+        && request.resource.data.criados is int
+        && request.resource.data.criados >= resource.data.criados
+        && request.resource.data.criados <= resource.data.criados + 50;
+
+      allow delete: if false;
+    }
+
+    // ---------------------------------------------------------------- admins/{uid}
+    match /admins/{uid} {
+      allow get: if dono(uid);    // o painel pergunta "sou administrador?" lendo o PRÓPRIO documento (não revela os outros)
+      allow list: if false;
+      allow create, update, delete: if false;   // só o console do Firebase cria (o console ignora as regras)
+    }
+
+    // ---------------------------------------------------------------- pagamentos/{idAsaas}  (escrito só pelo servidor)
+    match /pagamentos/{id} {
+      allow get, list: if logado() && resource.data.uid == request.auth.uid;   // a consulta do programa precisa filtrar where('uid','==',uid)
+      allow get, list: if admin();
+      allow write: if false;
+    }
+
+    // ---------------------------------------------------------------- chamados/{id}
+    function msgOk(m) { return m is map && m.keys().hasOnly(['de', 'texto', 'em']) && m.de == 'cliente' && textoOk(m.texto, 4000) && m.texto.size() >= 1 && (m.em is timestamp || m.em is string); }
+    match /chamados/{id} {
+      allow get, list: if logado() && resource.data.uid == request.auth.uid;
+      allow get, list, update: if admin();   // o dono lê e responde (a resposta pela função responderChamado também funciona)
+      // abrir: só como o próprio cliente, e-mail verificado, status aberto, uma única mensagem "cliente"
+      allow create: if verificado()
+        && request.resource.data.keys().hasOnly(['uid', 'email', 'nome', 'assunto', 'msgs', 'status', 'criadoEm', 'atualizadoEm', 'versao', 'maq'])
+        && request.resource.data.keys().hasAll(['uid', 'email', 'nome', 'assunto', 'msgs', 'status', 'criadoEm', 'atualizadoEm'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email is string && request.resource.data.email.lower() == request.auth.token.email.lower()
+        && textoOk(request.resource.data.nome, 120)
+        && textoOk(request.resource.data.assunto, 120) && request.resource.data.assunto.size() >= 1
+        && request.resource.data.status == 'aberto'
+        && request.resource.data.msgs is list && request.resource.data.msgs.size() == 1 && msgOk(request.resource.data.msgs[0])
+        && request.resource.data.criadoEm == request.time && request.resource.data.atualizadoEm == request.time
+        && (!('versao' in request.resource.data) || textoOk(request.resource.data.versao, 20))
+        && (!('maq' in request.resource.data) || textoOk(request.resource.data.maq, 20));
+      // acrescentar mensagem: só msgs, status (volta a 'aberto') e atualizadoEm; as anteriores ficam idênticas; a nova é do "cliente"
+      allow update: if verificado() && resource.data.uid == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['msgs', 'status', 'atualizadoEm'])
+        && request.resource.data.status == 'aberto'
+        && request.resource.data.atualizadoEm == request.time
+        && request.resource.data.msgs is list
+        && request.resource.data.msgs.size() == resource.data.msgs.size() + 1
+        && request.resource.data.msgs[0:resource.data.msgs.size()] == resource.data.msgs
+        && msgOk(request.resource.data.msgs[resource.data.msgs.size()]);
+      allow delete: if false;
+    }
+
+    // ---------------------------------------------------------------- avisos/{uid}/itens/{id}
+    match /avisos/{uid}/itens/{id} {
+      allow get, list: if dono(uid);
+      allow update: if dono(uid)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['lido'])
+        && request.resource.data.lido == true;
+      allow create, delete: if false;
+    }
+
+    // ---------------------------------------------------------------- vagas/{fundador|empresas}  (contador de vagas de lançamento)
+    match /vagas/{nome} {
+      allow get: if logado();
+      allow list, write: if false;
+    }
+
+    // ---------------------------------------------------------------- eventos/{id} (idempotência do webhook), fundadores, wa_conversas: só o servidor
+    match /eventos/{id} {
+      allow get, list: if admin();
+      allow write: if false;
+    }
+  }
+}
